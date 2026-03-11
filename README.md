@@ -19,14 +19,6 @@ Jangan pusing cari-cari link download software atau plugin yang bertebaran di in
 
 ---
 
-## Biar Belajarnya Asik, Jangan Lupa...
-
-*   **Gunakan Nama Kamu: ** Saat pertama kali buka, masukkan nama kamu ya. Biar Dashboard-nya menyapa kamu setiap hari dan buat kamu jadi makin semangat belajarnya.
-*   **Gunakan Mode Desktop: ** Kalau kamu belajar After Effects, paling enak buka halaman ini lewat laptop atau PC sambil membuka aplikasinya langsung. Tujuannya supaya apa yang kamu pelajari bisa langsung dipraktikkan saat itu juga.
-*   **Cari Materi di Sidebar: ** Kalau kamu ingin loncat ke materi tertentu, tinggal intip saja menu di samping kiri. Semuanya sudah disusun rapi per bagian.
-
----
-
 ## Ada Masalah atau Ingin Bertanya?
 
 Kalau kamu menemukan error atau cuma ingin tanya-tanya seputar dunia motion design, kamu bisa langsung hubungi
