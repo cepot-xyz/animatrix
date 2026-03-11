@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE Lesson 2 - Animatrix</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/favico.svg">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="../index.html" class="nav-brand">
+                <i class="bi bi-layers-fill neon-text"></i> Animatrix
+            </a>
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+    </header>
+    
+
+    <div class="layout-with-sidebar container-fluid">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-search">
+                <i class="bi bi-search"></i>
+                <input type="text" id="lessonSearch" placeholder="Cari materi...">
+            </div>
+
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="../index.html"><i class="bi bi-house-door"></i> Dashboard</a></li>
+                    <li><a href="../after-effects.html" class="active"><i class="bi bi-film"></i> After Effects</a></li>
+                    <li><a href="../alight-motion.html"><i class="bi bi-phone-fill"></i> Alight Motion</a></li>
+                    <li><a href="../downloads.html"><i class="bi bi-cloud-arrow-down-fill"></i> Downloads</a></li>
+                </ul>
+
+                <h4 class="menu-section-title">Bagian 1 – Pengenalan</h4>
+                <ul>
+                    <li><a href="ae-bagian1-lesson1.html" class="sidebar-lesson-link" data-lesson-id="ae-bagian1-lesson1">Lesson 1: Interface</a></li>
+                    <li><a href="ae-bagian1-lesson2.html" class="sidebar-lesson-link active" data-lesson-id="ae-bagian1-lesson2">Lesson 2: Basic Tools</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="page-content">
+            <div class="lesson-header">
+                <h1 class="text-neon">Bagian 1: Basic Tools & Shortcuts</h1>
+                <div id="lessonStatusBadge" class="lesson-status not-completed">
+                    <i class="bi bi-x-circle-fill"></i> Belum dipelajari
+                </div>
+            </div>
+
+            <div class="lesson-content shadow-glow">
+                
+                <h3>Catatan Materi</h3>
+                <p class="text-muted" style="margin-top: 10px;">
+                    Nulla facilisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus sit amet eleifend nisl, eget posuere augue. 
+                    Vestibulum id sapien varius, blandit nunc vel, scelerisque velit.
+                </p>
+                <p class="text-muted" style="margin-top: 10px;">
+                    Proin quis urna ex. Cras et accumsan elit, a vulputate odio. Maecenas tristique est sit amet leo condimentum, ut dictum nulla ultrices.
+                </p>
+
+                <!-- 16:9 Video Container -->
+                <div class="video-container">
+                    <!-- Placeholder YouTube Video (Using a generic search URL or placeholder ID context, used standard sample video format) -->
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <!-- Navigation -->
+                <div class="lesson-nav">
+                    <button class="btn btn-primary btn-finish-lesson" id="btnFinishLesson">
+                        <i class="bi bi-check-lg"></i> Selesaikan Pelajaran
+                    </button>
+                    
+                    <div class="nav-group">
+                        <a href="ae-bagian1-lesson1.html" class="btn btn-outline" title="Kembali">
+                            <i class="bi bi-arrow-left"></i> Prev
+                        </a>
+                        <a href="../after-effects.html" class="btn btn-outline" id="btnNext" title="Lanjut (Kembali ke Daftar)">
+                            Next <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="../index.html" class="nav-brand" style="justify-content: center; margin-bottom: 10px;">
+                <i class="bi bi-layers-fill"></i> Animatrix
+            </a>
+            <p class="text-muted">Idea by Cepot | Motion Creative Developer</p>
+            <div class="footer-contact">
+                <a href="https://instagram.com/cepot.xyz_" target="_blank"><i class="bi bi-instagram"></i> @cepot.xyz_</a>
+                <a href="mailto:cepotmain@gmail.com"><i class="bi bi-envelope-at-fill"></i> cepotmain@gmail.com</a>
+                <a href="https://cepot-xyz.github.io/creative-motion-developerr/" target="_blank"><i class="bi bi-globe"></i> Website</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
