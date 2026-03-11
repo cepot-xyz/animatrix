@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Animatrix</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts: Figtree -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favico.svg">
+</head>
+<body class="page-transition">
+    <!-- Welcome Modal -->
+    <div id="welcomeModal" class="modal-overlay">
+        <div class="modal">
+            <h2 class="text-3xl font-bold mb-4">Selamat Datang!</h2>
+            <p class="text-gray-400 mb-6">Masukkan nama kamu untuk memulai pengalaman belajar personal di Animatrix.</p>
+            <div class="mb-6">
+                <input type="text" id="nameInput" class="w-full px-5 py-4 rounded-xl bg-black/50 border border-gray-700 text-white focus:outline-none focus:border-red-500 transition-all text-center" placeholder="Masukkan nama kamu">
+            </div>
+            <button id="confirmNameBtn" class="btn btn-primary w-full py-3">Konfirmasi</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="nav-brand">
+                <i class="bi bi-layers-fill neon-text"></i> Animatrix
+            </a>
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="layout-with-sidebar container-fluid">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="index.html" class="active"><i class="bi bi-house-door"></i> Dashboard</a></li>
+                    <li><a href="after-effects.html"><i class="bi bi-film"></i> After Effects</a></li>
+                    <li><a href="alight-motion.html"><i class="bi bi-phone-fill"></i> Alight Motion</a></li>
+                    <li><a href="downloads.html"><i class="bi bi-cloud-arrow-down-fill"></i> Downloads</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="page-content">
+            <section class="text-center mb-16 mt-8">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Platform belajar motion design modern</h1>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-6">
+                    Kuasai teknik animasi profesional dengan After Effects dan Alight Motion.
+                </p>
+                
+                <div class="mb-10">
+                    <h2 class="text-3xl font-bold mb-1">Halo, <span id="userNameDisplay" class="display-name editable-name text-neon">Pengguna</span></h2>
+                    <p class="text-gray-500 text-sm">(Double-click nama untuk mengubah)</p>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="after-effects.html" class="btn btn-primary px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center">
+                        <i class="bi bi-play-fill mr-2"></i> Mulai Belajar
+                    </a>
+                    <a href="downloads.html" class="btn btn-outline px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center">
+                        <i class="bi bi-cloud-arrow-down-fill mr-2"></i> Unduh Alat
+                    </a>
+                </div>
+            </section>
+
+            <section class="container mx-auto max-w-5xl">
+                <h3 class="text-xl font-bold mb-5">Progress Kamu</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="stat-card glow rounded-2xl">
+                        <i class="bi bi-film stat-icon"></i>
+                        <div class="stat-info">
+                            <h4>After Effects</h4>
+                            <p id="statAe">0%</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glow rounded-2xl">
+                        <i class="bi bi-phone-fill stat-icon"></i>
+                        <div class="stat-info">
+                            <h4>Alight Motion</h4>
+                            <p id="statAm">0%</p>
+                        </div>
+                    </div>
+                    <div class="stat-card rounded-2xl">
+                        <i class="bi bi-journal-check stat-icon" style="color: #f0f0f0;"></i>
+                        <div class="stat-info">
+                            <h4>Materi Selesai</h4>
+                            <p id="statTotal">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card rounded-2xl">
+                        <i class="bi bi-clock-history stat-icon" style="color: #f0f0f0;"></i>
+                        <div class="stat-info">
+                            <h4>Terakhir</h4>
+                            <p id="statLast" class="truncate" style="font-size: 1rem;">-</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <a href="index.html" class="nav-brand" style="justify-content: center; margin-bottom: 10px;">
+                <i class="bi bi-layers-fill"></i> Animatrix
+            </a>
+            <p class="text-muted">Idea by Cepot | Motion Creative Developer</p>
+            <div class="footer-contact">
+                <a href="https://instagram.com/cepot.xyz_" target="_blank"><i class="bi bi-instagram"></i> @cepot.xyz_</a>
+                <a href="mailto:cepotmain@gmail.com"><i class="bi bi-envelope-at-fill"></i> email</a>
+                <a href="https://cepot-xyz.github.io/creative-motion-developerr/" target="_blank"><i class="bi bi-globe"></i> Website</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

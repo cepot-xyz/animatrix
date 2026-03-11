@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alight Motion - Animatrix</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favico.svg">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="nav-brand">
+                <i class="bi bi-layers-fill neon-text"></i> Animatrix
+            </a>
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+    </header>
+    
+
+    <!-- Header -->
+    
+    
+
+    <div class="layout-with-sidebar container-fluid">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-search">
+                <i class="bi bi-search"></i>
+                <input type="text" id="lessonSearch" placeholder="Cari materi...">
+            </div>
+
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="index.html"><i class="bi bi-house-door"></i> Dashboard</a></li>
+                    <li><a href="after-effects.html"><i class="bi bi-film"></i> After Effects</a></li>
+                    <li><a href="alight-motion.html" class="active"><i class="bi bi-phone-fill"></i> Alight Motion</a></li>
+                    <li><a href="downloads.html"><i class="bi bi-cloud-arrow-down-fill"></i> Downloads</a></li>
+                </ul>
+
+                <h4 class="menu-section-title">Bagian 1 – Pengenalan</h4>
+                <ul>
+                    <li><a href="alight-motion-lessons/am-bagian1-lesson1.html" class="sidebar-lesson-link" data-lesson-id="am-bagian1-lesson1">Lesson 1: Dasar App</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="page-content">
+            <div class="course-list-page">
+                <div class="hero" style="text-align: left; margin: 0 0 40px;">
+                    <h1 class="text-neon" style="font-size: 2.5rem; display: flex; align-items: center; gap: 15px;">
+                        <i class="bi bi-phone-fill"></i> Alight Motion
+                    </h1>
+                    <p style="margin: 0;">Buat animasi memukau langsung dari smartphone kamu.</p>
+                </div>
+
+                <div class="course-section">
+                    <h3 class="course-section-title">Bagian 1 – Pengenalan</h3>
+                    
+                    <a href="alight-motion-lessons/am-bagian1-lesson1.html" class="lesson-card">
+                        <div class="lesson-card-info">
+                            <div class="lesson-number">1</div>
+                            <div>
+                                <h4>Dasar Aplikasi</h4>
+                                <p>Pengenalan workspace di smartphone.</p>
+                            </div>
+                        </div>
+                        <i class="bi bi-chevron-right text-neon"></i>
+                    </a>
+                </div>
+
+                <div class="course-section">
+                    <h3 class="course-section-title">Bagian 2 – Transisi</h3>
+                    
+                    <a href="#" class="lesson-card">
+                        <div class="lesson-card-info">
+                            <div class="lesson-number">2</div>
+                            <div>
+                                <h4>Custom Transitions</h4>
+                                <p>Membuat transisi halus tanpa preset.</p>
+                            </div>
+                        </div>
+                        <i class="bi bi-chevron-right text-neon"></i>
+                    </a>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <a href="index.html" class="nav-brand" style="justify-content: center; margin-bottom: 10px;">
+                <i class="bi bi-layers-fill"></i> Animatrix
+            </a>
+            <p class="text-muted">Idea by Cepot | Motion Creative Developer</p>
+            <div class="footer-contact">
+                <a href="https://instagram.com/cepot.xyz_" target="_blank"><i class="bi bi-instagram"></i> @cepot.xyz_</a>
+                <a href="mailto:cepotmain@gmail.com"><i class="bi bi-envelope-at-fill"></i> cepotmain@gmail.com</a>
+                <a href="https://cepot-xyz.github.io/creative-motion-developerr/" target="_blank"><i class="bi bi-globe"></i> Website</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
