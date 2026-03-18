@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Override links for page transition
     document.querySelectorAll('a').forEach(link => {
-        if(link.hostname === window.location.hostname && !link.hash && link.target !== '_blank' && !link.getAttribute('download')){
-            link.addEventListener('click', function(e) {
+        if (link.hostname === window.location.hostname && !link.hash && link.target !== '_blank' && !link.getAttribute('download')) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = this.href;
                 document.body.classList.remove('loaded');
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalOverlay = document.getElementById('welcomeModal');
     const nameInput = document.getElementById('nameInput');
     const confirmNameBtn = document.getElementById('confirmNameBtn');
-    
+
     // Display name elements
     const displayNameEls = document.querySelectorAll('.display-name');
 
@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!userName && modalOverlay) {
         // First time visit
         modalOverlay.classList.add('active');
-        
+
         confirmNameBtn.addEventListener('click', () => {
             const val = nameInput.value.trim();
             if (val) {
                 localStorage.setItem('animatrix_username', val);
                 updateDisplayNameEls(val);
-                
+
                 // Change modal content for a welcome screen
                 modalOverlay.innerHTML = `
                     <div class="modal">
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn btn-primary" id="startBtn">Mulai Eksplorasi</button>
                     </div>
                 `;
-                
+
                 document.getElementById('startBtn').addEventListener('click', () => {
                     modalOverlay.classList.remove('active');
                 });
@@ -64,19 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Double click to edit name
     const editableName = document.querySelector('.editable-name');
     if (editableName) {
-        editableName.addEventListener('dblclick', function() {
+        editableName.addEventListener('dblclick', function () {
             const currentName = localStorage.getItem('animatrix_username') || '';
             const input = document.createElement('input');
             input.type = 'text';
             input.value = currentName;
             input.className = 'name-input-inline';
-            
+
             this.replaceWith(input);
             input.focus();
-            
+
             input.addEventListener('blur', saveNewName);
-            input.addEventListener('keypress', function(e) {
-                if(e.key === 'Enter') {
+            input.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
                     saveNewName.call(input);
                 }
             });
@@ -84,23 +84,23 @@ document.addEventListener('DOMContentLoaded', () => {
             function saveNewName() {
                 const newName = this.value.trim() || currentName;
                 localStorage.setItem('animatrix_username', newName);
-                
+
                 const span = document.createElement('span');
                 span.className = 'display-name editable-name text-neon';
                 span.textContent = newName;
-                
+
                 // Reattach event
-                span.addEventListener('dblclick', editableName.ondblclick || function(){
-                     // trigger logic again
-                     let dblclickEvent = new MouseEvent('dblclick', {
+                span.addEventListener('dblclick', editableName.ondblclick || function () {
+                    // trigger logic again
+                    let dblclickEvent = new MouseEvent('dblclick', {
                         'view': window,
                         'bubbles': true,
                         'cancelable': true
-                      });
-                      span.dispatchEvent(dblclickEvent);
+                    });
+                    span.dispatchEvent(dblclickEvent);
                 });
                 // We just refresh the page for simplicity or re-bind
-                location.reload(); 
+                location.reload();
             }
         });
     }
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Sidebar Mobile Drawer
     const sidebar = document.getElementById('sidebar');
     const sidebarToggleBtn = document.getElementById('sidebarToggle');
-    
+
     if (sidebarToggleBtn && sidebar) {
         sidebarToggleBtn.addEventListener('click', () => {
             sidebar.classList.toggle('open');
@@ -127,10 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Sidebar Search Filter
     const searchInput = document.getElementById('lessonSearch');
     if (searchInput) {
-        searchInput.addEventListener('input', function(e) {
+        searchInput.addEventListener('input', function (e) {
             const filter = e.target.value.toLowerCase();
             const lessonLinks = document.querySelectorAll('.sidebar-lesson-link');
-            
+
             lessonLinks.forEach(link => {
                 const text = link.textContent.toLowerCase();
                 if (text.includes(filter)) {
@@ -184,7 +184,7 @@ function markLessonCompleted(lessonId) {
         completedLessons.push(lessonId);
         localStorage.setItem('animatrix_completed_lessons', JSON.stringify(completedLessons));
     }
-    
+
     // Save last lesson
     localStorage.setItem('animatrix_last_lesson', lessonId);
 }
@@ -210,7 +210,7 @@ function updateLessonStatusUI(lessonId) {
 
 function syncLessonStatus() {
     const completedLessons = JSON.parse(localStorage.getItem('animatrix_completed_lessons') || '[]');
-    
+
     // For sidebar items: they should have a data-lesson-id attribute corresponding to the id
     const sidebarLinks = document.querySelectorAll('.sidebar-lesson-link');
     sidebarLinks.forEach(link => {
@@ -230,7 +230,7 @@ function updateDashboardStats() {
     if (!statAe) return;
 
     const completedLessons = JSON.parse(localStorage.getItem('animatrix_completed_lessons') || '[]');
-    
+
     let aeCount = 0;
     let amCount = 0;
 
@@ -254,10 +254,10 @@ function updateDashboardStats() {
     let lastLessonText = "Belum ada";
     if (lastLessonId) {
         // simple parsing
-        if(lastLessonId.startsWith('ae-')) {
-            lastLessonText = "AE - "+lastLessonId.split('-')[2].replace('lesson', 'Lesson ');
-        } else if(lastLessonId.startsWith('am-')) {
-           lastLessonText = "AM - "+lastLessonId.split('-')[2].replace('lesson', 'Lesson ');
+        if (lastLessonId.startsWith('ae-')) {
+            lastLessonText = "AE - " + lastLessonId.split('-')[2].replace('lesson', 'Lesson ');
+        } else if (lastLessonId.startsWith('am-')) {
+            lastLessonText = "AM - " + lastLessonId.split('-')[2].replace('lesson', 'Lesson ');
         }
     }
     document.getElementById('statLast').textContent = lastLessonText;
