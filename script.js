@@ -226,8 +226,8 @@ function syncLessonStatus() {
 
 function updateDashboardStats() {
     // Only run if on dashboard
-    const statAe = document.getElementById('statAe');
-    if (!statAe) return;
+    const statAeEl = document.getElementById('statAe');
+    if (!statAeEl) return;
 
     const completedLessons = JSON.parse(localStorage.getItem('animatrix_completed_lessons') || '[]');
 
@@ -239,26 +239,29 @@ function updateDashboardStats() {
         if (id.startsWith('am-')) amCount++;
     });
 
-    // Dummy total lessons for percentage (assuming e.g. 10 lessons each)
-    const TOTAL_AE = 10;
-    const TOTAL_AM = 10;
+    // Sesuaikan TOTAL materi yang SUDAH TERSEDIA (bukan coming soon)
+    const TOTAL_AE = 1; // Setelah Pertemuan 1 selesai, progress jadi 100%
+    const TOTAL_AM = 0; // Alight Motion belum ada materi yang selesai dibuat
 
-    const aeProgress = Math.min(Math.round((aeCount / TOTAL_AE) * 100), 100);
-    const amProgress = Math.min(Math.round((amCount / TOTAL_AM) * 100), 100);
+    const aeProgress = TOTAL_AE > 0 ? Math.min(Math.round((aeCount / TOTAL_AE) * 100), 100) : 0;
+    const amProgress = TOTAL_AM > 0 ? Math.min(Math.round((amCount / TOTAL_AM) * 100), 100) : 0;
 
     document.getElementById('statAe').textContent = `${aeProgress}%`;
     document.getElementById('statAm').textContent = `${amProgress}%`;
     document.getElementById('statTotal').textContent = completedLessons.length;
 
-    const lastLessonId = localStorage.getItem('animatrix_last_lesson');
-    let lastLessonText = "Belum ada";
-    if (lastLessonId) {
-        // simple parsing
-        if (lastLessonId.startsWith('ae-')) {
-            lastLessonText = "AE - " + lastLessonId.split('-')[2].replace('lesson', 'Lesson ');
-        } else if (lastLessonId.startsWith('am-')) {
-            lastLessonText = "AM - " + lastLessonId.split('-')[2].replace('lesson', 'Lesson ');
+    // Bagian "Terakhir" sudah dihapus dari HTML, skip update-nya jika element tidak ada
+    const statLastEl = document.getElementById('statLast');
+    if (statLastEl) {
+        const lastLessonId = localStorage.getItem('animatrix_last_lesson');
+        let lastLessonText = "Belum ada";
+        if (lastLessonId) {
+            if (lastLessonId.startsWith('ae-')) {
+                lastLessonText = "AE - " + lastLessonId.split('-')[2].replace('lesson', 'Lesson ');
+            } else if (lastLessonId.startsWith('am-')) {
+                lastLessonText = "AM - " + lastLessonId.split('-')[2].replace('lesson', 'Lesson ');
+            }
         }
+        statLastEl.textContent = lastLessonText;
     }
-    document.getElementById('statLast').textContent = lastLessonText;
 }
